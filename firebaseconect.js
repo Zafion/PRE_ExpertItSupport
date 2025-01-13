@@ -149,10 +149,20 @@ export const addCollection = (collectionname, mail, password) => {
 //   });
 // }
 
-//versión 2 - web alojada en localhost
+// //versión 2 - web alojada en raíz de localhost de PRE
+// export function checkSession() {
+//   onAuthStateChanged(auth, (user) => { //verifica estado de la sesión
+//       if (!user && window.location.pathname !== "/PRE_ExpertItSupport/login.html") {
+//         //si no hay usuario y no está en login, redirigir a login.
+//           window.location.href = "login.html";
+//       }
+//   });
+// }
+
+//versión 3 - web alojada en localhost/xampp de PRE
 export function checkSession() {
   onAuthStateChanged(auth, (user) => { //verifica estado de la sesión
-      if (!user && window.location.pathname !== "/PRE_ExpertItSupport/login.html") {
+      if (!user && window.location.pathname !== "/xampp/PRE_ExpertItSupport/login.html") {
         //si no hay usuario y no está en login, redirigir a login.
           window.location.href = "login.html";
       }
