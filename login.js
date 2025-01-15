@@ -58,15 +58,15 @@ function handleLogin(event) {
   //llamar a la función para iniciar sesión
   manageAccount.authenticate(email, password);
   // Enviar datos a login.php
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'login.php', true);
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
+  var xhr = new XMLHttpRequest(); // Crear objeto XMLHttpRequest
+  xhr.open('POST', 'login.php', true); // Abrir conexión
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Establecer cabecera
+  xhr.onreadystatechange = function() { // Definir función de respuesta
+    if (xhr.readyState === 4 && xhr.status === 200) { // Si la respuesta es correcta
       console.log(xhr.responseText); // Manejar la respuesta del servidor
     }
   };
-  xhr.send('email=' + encodeURIComponent(email));
+  xhr.send('email=' + encodeURIComponent(email)); // Enviar datos
 }
 
 
@@ -90,15 +90,15 @@ function handleSignup(event) {
   //llamar a la función para registrar usuario
   manageAccount.register(email, password);
   // Enviar datos a signup.php
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'signup.php', true);
-  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
+  var xhr = new XMLHttpRequest(); // Crear objeto XMLHttpRequest
+  xhr.open('POST', 'signup.php', true); // Abrir conexión
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); // Establecer cabecera
+  xhr.onreadystatechange = function() { // Definir función de respuesta
+    if (xhr.readyState === 4 && xhr.status === 200) { // Si la respuesta es correcta
       console.log(xhr.responseText); // Manejar la respuesta del servidor
     }
   };
-  xhr.send('email=' + encodeURIComponent(email));
+  xhr.send('email=' + encodeURIComponent(email)); // Enviar datos
 
   //limpiar formulario
   document.getElementById("email").value = "";

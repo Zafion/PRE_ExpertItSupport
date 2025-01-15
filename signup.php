@@ -19,7 +19,8 @@ $email = $_POST['email'];
 // Insertar el correo electrónico en la tabla users
 $sql = "INSERT INTO users (email) VALUES ('$email')";
 
-if ($conn->query($sql) === TRUE) {
+//si se inserta correctamente muestra un mensaje de éxito y si no muestra un mensaje de error
+if ($conn->query($sql) === TRUE) { //
     echo "Usuario añadido a base de datos SQL tabla users\n";
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error . "\n";
