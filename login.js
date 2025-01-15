@@ -39,14 +39,14 @@ function mostrarClausula() {
 
 
 //función para manejar formulario de inicio de sesión
-function handleLogin(event) { 
-  event.preventDefault(); // Prevenir la recarga de la página
-  // obtener valore del campo de email
-  const email = document.getElementById("email").value;
-  // si el email está vacio mostrar alerta
+function handleLogin(event) {
+ event.preventDefault(); // Prevenir la recarga de la página
+ // obtener valor del campo de email
+ const email = document.getElementById("email").value;
+ // si el email está vacio mostrar alerta
   if (email === "") {
-    alert("Por favor, introduce tu correo electrónico.");
-    return;
+   alert("Por favor, introduce tu correo electrónico.");
+   return;
   }
   // obtener valor del campo de contrasenya
   const password = document.getElementById("password").value;
@@ -57,12 +57,22 @@ function handleLogin(event) {
   }
   //llamar a la función para iniciar sesión
   manageAccount.authenticate(email, password);
+  // Enviar datos a login.php
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'login.php', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log(xhr.responseText); // Manejar la respuesta del servidor
+    }
+  };
+  xhr.send('email=' + encodeURIComponent(email));
 }
 
 
 //función para manejar formulario de registro de usuario
 function handleSignup(event) {
-  event.preventDefault();// Prevenir la recarga de la página
+  event.preventDefault(); // Prevenir la recarga de la página
   // obtener valor del campo de email
   const email = document.getElementById("email").value;
   // si el email está vacio mostrar alerta
@@ -79,9 +89,19 @@ function handleSignup(event) {
   }
   //llamar a la función para registrar usuario
   manageAccount.register(email, password);
+  // Enviar datos a signup.php
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'signup.php', true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log(xhr.responseText); // Manejar la respuesta del servidor
+    }
+  };
+  xhr.send('email=' + encodeURIComponent(email));
+
   //limpiar formulario
   document.getElementById("email").value = "";
   document.getElementById("password").value = "";
 }
-
 
