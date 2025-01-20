@@ -16,8 +16,11 @@ if ($conn->connect_error) {
 // Obtener el correo electrónico del formulario
 $email = $_POST['email'];
 
-// Insertar el correo electrónico en la tabla users
-$sql = "INSERT INTO users (email) VALUES ('$email')";
+// Obtener la fecha y hora actual
+$sign_date = date('Y-m-d');
+
+// Insertar el correo electrónico y la fecha de registro en la tabla users
+$sql = "INSERT INTO users (email, sign_date) VALUES ('$email', '$sign_date')";
 
 //si se inserta correctamente muestra un mensaje de éxito y si no muestra un mensaje de error
 if ($conn->query($sql) === TRUE) { //

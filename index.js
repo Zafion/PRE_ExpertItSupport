@@ -157,7 +157,7 @@ expertBtn.addEventListener("click", function() { // Escucha el clic en el botón
     alert('Por favor, selecciona un entorno (PRE o PRO) antes de continuar.');
   } else if (selectedSearchType === "Buscar por...") {  //comprueba que se selecciona tipo
     alert("Por favor, selecciona una opción de búsqueda.");
-  } else if (selectedExperticket === "Selecciona Expeticket...") {  //comprueba que se selecciona tipo
+  } else if (selectedExperticket === "Selecciona Experticket...") {  //comprueba que se selecciona tipo
     alert("Por favor, selecciona un Experticket.");
   } else {
     handleClick.experTicket();
@@ -181,7 +181,7 @@ addpassBtn.addEventListener("click", () => {
   //console.log("newpassId: " + newpassId.value);
   console.log("tablasel: " + selectorTabla.value);
   //si tablasel es vacío, mostrar alerta
-  if (selectorTabla.value === "Selecciona Expeticket...") {
+  if (selectorTabla.value === "Selecciona Experticket...") {
     alert("Por favor, selecciona una tabla antes de continuar.");
     return;
   }
