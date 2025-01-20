@@ -299,7 +299,7 @@ export async function cambiarContraseña(nuevaContraseña) {
   }
 }
 
-
+// función para eliminar la cuenta del usuario
 export async function deleteAccount() {
   // Obtén el usuario actual
   const user = auth.currentUser;
