@@ -279,6 +279,8 @@ export async function cambiarContraseña(nuevaContraseña) {
     try { //intenta cambiar la contraseña
       await updatePassword(user, nuevaContraseña); 
       console.log("La contraseña se ha cambiado correctamente.");
+      // alerta de que la contraseña se ha cambiado correctamente
+      alert("La contraseña se ha cambiado correctamente.");
     } catch (error) { //gestiona los errores
       if (error.code === "auth/requires-recent-login") { //si el error es Firebase: Error (auth/requires-recent-login)
         console.error("El usuario necesita iniciar sesión de nuevo para cambiar la contraseña.");
