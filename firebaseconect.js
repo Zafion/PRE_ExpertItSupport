@@ -11,17 +11,18 @@ import { getFirestore, collection, getDocs, addDoc, updateDoc, query, where } fr
 // Importar librerias de autenticación
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, updatePassword, deleteUser} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
-// Configuración de Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyBuOBk1WFaD_jttnuprTbAGBYHI8YYK4GE",
-  authDomain: "pre-expertitsupport.firebaseapp.com",
-  projectId: "pre-expertitsupport",
-  storageBucket: "pre-expertitsupport.appspot.com",
-  messagingSenderId: "521641266292",
-  appId: "1:521641266292:web:6b122687944612cbfe5521"
-};
+// Función para obtener configuración desde firebaseConfig.php
+// De esta forma los datos de acceso a firebase no son accesibles desde el usuario
+async function fetchFirebaseConfig() {
+  const response = await fetch('firebaseConfig.php'); 
+  if (!response.ok) {
+    throw new Error('No se pudo cargar la configuración de Firebase');
+  }
+  return response.json();
+}
 
-// Inicializar Firebase
+// Inicializar Firebase dinámicamente con la configuración obtenida
+const firebaseConfig = await fetchFirebaseConfig();
 const app = initializeApp(firebaseConfig);
 
 // Inicializar BBDD
