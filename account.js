@@ -74,6 +74,12 @@ function logOut () {
 
 //Función para cambiar contraseña de usuario.
 function changePassword() {
+    //si newUserPassword1 o newUserPassword2 están vacíos, mostrar alerta
+    if (newUserPassword1.value === "" || newUserPassword2.value === "") {
+        console.log("Campo vacío.")
+        alert("Por favor, introduce una contraseña en ambos campos.");
+        return;
+    }
     //si newUserPassword1 es igual a newUserPassword2, cambiar contrasenya a newUserPassword1
     if (newUserPassword1.value === newUserPassword2.value) {
         console.log("Las contraseñas coinciden.")
